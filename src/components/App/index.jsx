@@ -4,16 +4,18 @@ import { Container, ScoreSpan } from "./styles";
 import Item from "../Item";
 import VS from "../VS";
 import Lost from "../Lost"
+import Landing from "../Landing";
 import { code } from "../../code";
 
 function App() {
-  const [available, setAvailable] = useState(code.slice().sort(() => Math.random() - 0.5))
+  const [isLanding, setIsLanding] = useState(true)
+  const [available, setAvailable] = useState([...code].slice().sort(() => Math.random() - 0.5))
   const [selected, setSelected] = useState([...getRandomItems(available)])
   const [score, setScore] = useState(0);
   const [lost, setLost] = useState(false);
   const [isMoving, setIsMoving] = useState(false)
+  const [isFilling, setIsFilling] = useState(false)
   const [showingAnswer, setShowingAnswer] = useState(false)
-
 
 
   const getNewItem = () => {
@@ -29,17 +31,25 @@ function App() {
     setTimeout(() => {
 
       if (bool) {
-        setIsMoving(true)
-
+        setIsFilling("green")
         setTimeout(() => {
-          setIsMoving(false)
-          setScore(prev => prev + 1)
-          setShowingAnswer(false)
-          getNewItem()
-        }, 1001)
+          setIsFilling(null)
+          setIsMoving(true)
 
+          setTimeout(() => {
+            setIsMoving(false)
+            setScore(prev => prev + 1)
+            setShowingAnswer(false)
+            getNewItem()
+          }, 1000)
+
+        }, 1000)
       } else {
-        setLost(true)
+        setIsFilling("red")
+        setTimeout(() => {
+
+          setLost(true)
+        }, 1000);
       }
     }, 1000)
   }
@@ -47,22 +57,30 @@ function App() {
   const handleLower = () => {
     handleChoice(selected[0].value >= selected[1].value)
   }
+
   const handleHigher = () => {
     handleChoice(selected[0].value <= selected[1].value)
   }
 
   const resetGame = () => {
+    setAvailable(code)
     setLost(false)
+    setIsFilling(null)
     setShowingAnswer(false)
     setScore(0)
-    setAvailable(code.slice().sort(() => Math.random() - 0.5))
-    setSelected([...getRandomItems(available)])
+    setSelected([...getRandomItems(code)])
+  }
+
+  if (isLanding) {
+    return (
+      <Landing start={() => setIsLanding(false)} />
+    )
   }
 
   return (
     < >
       {lost && (<Lost score={score} resetGame={resetGame} />)}
-      <VS />
+      <VS isMoving={isFilling} />
       <Container>
         {selected?.map((item, idx) => (
           <Item
@@ -75,7 +93,9 @@ function App() {
             isLast={idx !== 0}
             text={item.func} />
         ))}
-        <ScoreSpan>Score: {score}</ScoreSpan>
+        {
+          !lost && <ScoreSpan>Score: {score}</ScoreSpan>
+        }
       </Container>
     </ >
   );

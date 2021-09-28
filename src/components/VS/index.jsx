@@ -1,9 +1,10 @@
 import React from 'react'
 import { Circle } from './styles'
 
-const VS = () => {
+const VS = (props) => {
+  const { isMoving } = props
   return (
-    <Circle>
+    <Circle isMoving={isMoving}>
       VS
     </Circle>
   )

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: ${props => props.isHidden ? "none" : "flex"};
+  display: ${(props) => (props.isHidden ? "none" : "flex")};
   flex-direction: column;
   margin: auto;
   text-align: center;
@@ -22,6 +22,7 @@ export const Button = styled.button`
   width: 12.5rem;
   padding: 0.625rem;
   border-radius: 2.5rem;
+  font-size: 18px;
 
   margin: 0 10px 10px;
   position: relative;
@@ -32,11 +33,31 @@ export const Button = styled.button`
   background: transparent no-repeat 0 0;
   font-weight: 700;
   -webkit-touch-callout: none;
-
+  overflow: hidden;
   border-color: black;
+  position: relative;
 
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: 16%;
+    background: purple;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: -1;
+    transition: top 0.09s ease-in;
+    -webkit-transition: top 0.09s ease-in;
+  }
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    color: whitesmoke;
     cursor: pointer;
+    :before {
+      top: 0;
+    }
+  }
+  &:focus{
+    outline: auto;
   }
 `;

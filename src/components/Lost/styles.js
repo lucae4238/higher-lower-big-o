@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "../Item/Buttons/styles";
 
 export const Container = styled.div`
   /* height: 100vh; */
@@ -26,7 +27,19 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  bottom: 10%;
+  bottom: 8%;
   left: 35%;
+  }
+
+  h1{
+    margin-top: 0;
+  }
+
+`;
+
+export const CustomButton = styled(Button)`
+  font-size: 18px;
+  &:before{
+    background: green;
   }
 `;

@@ -1,30 +1,22 @@
 import React from "react";
 import { CodeBlock, dracula } from "react-code-blocks";
+import { Container } from "./styles";
 
 const Code = (props) => {
   const { text } = props;
 
   return (
-    <div
-      style={{
-        fontFamily: "Fira Code",
-        width: "46vw",
-        margin: "10px",
-        overflow: "scroll",
-        maxHeight: "65vh",
-      }}
-    >
+    <Container>
       <CodeBlock
         customStyle={{
           borderRadius: "15px",
-          padding: "10px",
+          padding: "0 9px ",
         }}
         text={text}
         language="javascript"
-        // showLineNumbers={false}
         theme={dracula}
       />
-    </div>
+    </Container>
   );
 };
 

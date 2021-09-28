@@ -10,7 +10,32 @@ export const Circle = styled.div`
   padding: 10px;
   z-index: 10;
   border-radius: 100%;
-  &:hover{
-    cursor: default; 
+  &:hover {
+    cursor: default;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: ${(props) => props.isMoving || "white"};
+
+    border-radius: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    top: 100%;
+    z-index: -1;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+  }
+  ${(props) =>
+    props.isMoving &&
+    `
+    color: whitesmoke;
+     &:before {
+       opacity: 1;
+      top: 0;
+    }
+  `};
 `;

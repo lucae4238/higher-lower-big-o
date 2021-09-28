@@ -7,12 +7,12 @@ const Buttons = (props) => {
     < Container isHidden={isHidden}>
       <span>This function has </span>
       <Button onClick={handleHigher}>
-        higher
+        Higher
       </Button>
       <Button onClick={handleLower}>
-        lower
+        Lower
       </Button>
-      <span>time complexity</span>
+      <span>Big O Notation</span>
     </ Container>
   )
 }

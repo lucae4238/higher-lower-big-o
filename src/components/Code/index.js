@@ -8,15 +8,20 @@ const Code = (props) => {
     <div
       style={{
         fontFamily: "Fira Code",
-        width: "40vw",
-        margin: "10px"
+        width: "46vw",
+        margin: "10px",
+        overflow: "scroll",
+        maxHeight: "65vh",
       }}
     >
       <CodeBlock
-        className="codeblock"
+        customStyle={{
+          borderRadius: "15px",
+          padding: "10px",
+        }}
         text={text}
         language="javascript"
-        showLineNumbers={false}
+        // showLineNumbers={false}
         theme={dracula}
       />
     </div>

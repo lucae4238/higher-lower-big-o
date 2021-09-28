@@ -8,5 +8,9 @@ export const Circle = styled.div`
   background: white;
   font-size: 45px;
   padding: 10px;
+  z-index: 10;
   border-radius: 100%;
+  &:hover{
+    cursor: default; 
+  }
 `;

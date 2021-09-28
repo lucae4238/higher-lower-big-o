@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+const slideIn = keyframes`
+
+0%{
+  transform: translateX(0)
+}
+100%{
+  transform: translateX(-50vw)
+}
+/* 100%{
+  transform: translateX(0)
+} */
+
+
+`;
 
 export const Container = styled.div`
   height: 100vh;
@@ -9,7 +24,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  /* transition: 1s; */
+  /* transform: ${props => props.left ? `translateX(-50vw)` : `translateX(0)`} */
+  ${
+    props => props.left && css`
+    animation: ${slideIn} 1.1s ease infinite;
+    `
+  }
 `;
 
 export const CodeContainer = styled.div`
@@ -19,19 +40,24 @@ export const CodeContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: auto;
-  background: darkblue;
+  /* background: darkblue; */
 `;
 
 export const Answer = styled.div`
   background: red;
-  height: 60vh;
-  position: absolute;
-  top: 4%;
+  height: 25vh;
   width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
 
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
+
+  box-shadow: 0 0.9375rem 2.5rem 0 rgb(0 0 0 / 10%);
+  outline: 0;
+  background: transparent no-repeat 0 0;
+  background: none;
 `;

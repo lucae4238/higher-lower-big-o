@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
+  display: ${props => props.isHidden ? "none" : "flex"};
   flex-direction: column;
-  margin: 10px;
+  margin: auto;
   text-align: center;
-  span{
+  span {
     margin: 10px;
+    font-size: larger;
+    &:hover {
+      cursor: default;
+    }
   }
 `;
-
 
 export const Button = styled.button`
   margin: 1rem;
@@ -33,7 +36,7 @@ export const Button = styled.button`
   border-color: black;
 
   &:hover {
+    background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    background: grey;
   }
 `;

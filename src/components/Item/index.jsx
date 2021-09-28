@@ -4,19 +4,25 @@ import Buttons from './Buttons'
 import Code from '../Code'
 
 const Item = (props) => {
-  const { text, explanation, isLast, answer } = props
+  const { text, showingAnswer, isLast, answer, handleHigher, handleLower, isMoving } = props
 
   return (
-    <Container>
+    <Container left={isMoving}>
 
       <CodeContainer>
         <Code text={text} />
       </CodeContainer>
 
-      {isLast && <Buttons />}
-      <Answer>
-        {answer}
-      </Answer>
+      {isLast && <Buttons handleHigher={handleHigher} handleLower={handleLower} isHidden={showingAnswer} /> /* se para como prop showing ans
+      para transicion CSS de aparecer respuesta*/}
+      {
+        //!isLast || showingAnser
+        (!isLast || showingAnswer) && <Answer>
+          <span>
+            {answer}
+          </span>
+        </Answer>
+      }
     </Container>
   )
 }

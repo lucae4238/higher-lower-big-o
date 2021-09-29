@@ -1,6 +1,6 @@
 export const code = [
   {
-    value: 10,
+    //checked
     answer: "O(n)",
     func: `function doubleArrayValues(array) {
     for (let i=0; i<array.length; i++) {
@@ -10,27 +10,22 @@ export const code = [
       }`,
   },
   {
-    value: 20,
+    //checked
     answer: "O(n^2)",
     func: `function createPairs(arr) {
-    //let ticks = 0;
       for (let i = 0; i < arr.length; i++) {
           for(let j = i+1; j < arr.length; j++) {
               console.log(arr[i] + ", " +  arr[j] );
-              //ticks++;
           }
       }
-    //console.log(ticks);
   }`,
   },
   {
-    value: 10,
+    //checked
     answer: "O(n)",
     func: `function generateFib(num) {
     let result = [];
-    //let ticks = 0;
     for (let i = 1; i <= num; i++) {
-      //ticks++;
       if (i === 1) {
         result.push(0);
       }
@@ -41,14 +36,13 @@ export const code = [
         result.push(result[i - 2] + result[i - 3]);
       }
     }
-    //console.log(ticks);
     return result;
   }`,
   },
   {
-    value: 5,
+    //checked
     answer: "O(log n)",
-    func:`function efficientSearch(array, item) {
+    func: `function efficientSearch(array, item) {
       let minIndex = 0;
       let maxIndex = array.length - 1;
       let currentIndex;
@@ -69,32 +63,76 @@ export const code = [
           }
       }
       return -1;
-  }`
+  }`,
   },
   {
-    value: 1,
-    answer:"O(1)",
+    //checked
+    answer: "O(1)",
+    func: `function getLast(items){
+      return  items[items.length-1];
+    }
+    `,
+  },
+  {
+    //checked
+    answer: "O(1)",
     func: `function findRandomElement(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
-  }`
+  }`,
   },
   {
-    value: 20,
+    //checked
     answer: "O(n^2)",
-    func:`function areYouHere(arr1, arr2) {
-      //let ticks1, ticks2 = 0;
+    func: `function areYouHere(arr1, arr2) {
         for (let i=0; i<arr1.length; i++) {
             const el1 = arr1[i];
-            //ticks1++;
             for (let j=0; j<arr2.length; j++) {
                 const el2 = arr2[j];
-                //ticks2++;
                 if (el1 === el2) return true;
             }
-          //console.log(ticks1);
-          //console.log(ticks2);
         }
         return false;
-    }`
-  }
+    }`,
+  },
+  {
+    answer: "O(log n)",
+    func: `function quickSort(list){
+      if (list.length < 2) 
+        return list;
+      let pivot = list[0];
+      let left  = []; 
+      let right = [];
+      for (let i = 1, total = list.length; i < total; i++){
+        if (list[i] < pivot)
+          left.push(list[i]);
+        else
+          right.push(list[i]);
+      }
+      return [
+        ...quickSort(left), 
+        pivot, 
+        ...quickSort(right)
+      ];
+    };`,
+  },
+  {
+    //checked
+    answer: "O(n!)",
+    func: `function (n) {
+      let num = n
+      if (n === 0) return 1
+      for (let i = 0; i < n; i++) {
+        num = n * factorial(n - 1)
+      }
+      return num
+    }`,
+  },
+  {
+    answer: "O(2^n)",
+    func: `function fibonacci(num) {
+      if (num === 0) return 0
+      else if (num === 1) return 1
+      return fibonacci(num - 1) + fibonacci(num - 2)
+    }`,
+  },
 ];

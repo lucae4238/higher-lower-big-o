@@ -5,7 +5,18 @@ import Item from "../Item";
 import VS from "../VS";
 import Lost from "../Lost"
 import Landing from "../Landing";
+import Win from "../Win";
 import { code } from "../../code";
+
+const values = {
+  "O(1)": 1,
+  "O(log n)": 5,
+  "O(n)": 10,
+  //aca iria (0 n log n)
+  "O(n^2)": 20,
+  "(2^n)": 30,
+  "O(n!)": 50,
+}
 
 function App() {
   const [isLanding, setIsLanding] = useState(true)
@@ -13,6 +24,7 @@ function App() {
   const [selected, setSelected] = useState([...getRandomItems(available)])
   const [score, setScore] = useState(0);
   const [lost, setLost] = useState(false);
+  const [win, setWin] = useState(true)
   const [isMoving, setIsMoving] = useState(false)
   const [isFilling, setIsFilling] = useState(false)
   const [showingAnswer, setShowingAnswer] = useState(false)
@@ -29,13 +41,14 @@ function App() {
     if (isMoving) return;
     setShowingAnswer(true)
     setTimeout(() => {
-
+      
       if (bool) {
+        if (available.length < 1) return setWin(true)
         setIsFilling("green")
         setTimeout(() => {
           setIsFilling(null)
           setIsMoving(true)
-
+          
           setTimeout(() => {
             setIsMoving(false)
             setScore(prev => prev + 1)
@@ -55,16 +68,17 @@ function App() {
   }
 
   const handleLower = () => {
-    handleChoice(selected[0].value >= selected[1].value)
+    handleChoice(values[selected[0].answer] >= values[selected[1].answer])
   }
 
   const handleHigher = () => {
-    handleChoice(selected[0].value <= selected[1].value)
+    handleChoice(values[selected[0].answer] <= values[selected[1].answer])
   }
 
   const resetGame = () => {
     setAvailable(code)
     setLost(false)
+    setWin(false)
     setIsFilling(null)
     setShowingAnswer(false)
     setScore(0)
@@ -80,6 +94,7 @@ function App() {
   return (
     < >
       {lost && (<Lost score={score} resetGame={resetGame} />)}
+      {win && (<Win score={score} resetGame={resetGame} />)}
       <VS isMoving={isFilling} />
       <Container>
         {selected?.map((item, idx) => (

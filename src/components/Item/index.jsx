@@ -13,10 +13,8 @@ const Item = (props) => {
         <Code text={text} />
       </CodeContainer>
 
-      {isLast && <Buttons handleHigher={handleHigher} handleLower={handleLower} isHidden={showingAnswer} /> /* se para como prop showing ans
-      para transicion CSS de aparecer respuesta*/}
+      {isLast && <Buttons handleHigher={handleHigher} handleLower={handleLower} isHidden={showingAnswer} />}
       {
-        //!isLast || showingAnser
         (!isLast || showingAnswer) && <Answer>
           <span>
             {answer}

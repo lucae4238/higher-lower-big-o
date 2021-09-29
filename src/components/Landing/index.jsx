@@ -15,7 +15,7 @@ const Landing = (props) => {
         <div>
           <p>
             Welcome!
-            This game is inspired in the <a href="http://www.higherlowergame.com/">Higher or Lower game</a>,
+            This game is inspired by the <a href="http://www.higherlowergame.com/">Higher or Lower game</a>,
             but instead of monthly searches
             you will have to choose by the <a href="https://en.wikipedia.org/wiki/Big_O_notation">Big O Notation</a> of each algorithm
           </p>

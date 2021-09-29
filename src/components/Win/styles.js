@@ -31,6 +31,10 @@ export const Container = styled.div`
     left: 35%;
     height: fit-content;
     padding: 15px;
+    @media (max-width: 900px) {
+      bottom: 35%;
+      left: 68%;
+    }
   }
 
   h1 {

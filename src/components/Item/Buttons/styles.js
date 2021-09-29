@@ -12,13 +12,26 @@ export const Container = styled.div`
       cursor: default;
     }
   }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 900px) {
+      flex-direction: row;
+    }
+  }
+  @media (max-width: 900px) {
+    height: 25vh;
+  }
+  @media (max-width: 450px) {
+    width: 90vw;
+  }
 `;
 
 export const Button = styled.button`
   margin: 1rem;
   padding: 20px;
   border-radius: 14%;
-  width: 200px;
   width: 12.5rem;
   padding: 0.625rem;
   border-radius: 2.5rem;
@@ -57,7 +70,8 @@ export const Button = styled.button`
       top: 0;
     }
   }
-  &:focus{
+  &:focus {
     outline: auto;
   }
+  max-width: 90%;
 `;

@@ -6,4 +6,9 @@ export const Container = styled.div`
   margin: 10px;
   overflow: scroll;
   max-height: 65vh;
+
+  @media(max-width:900px ){
+    width: 80vw;
+    max-height: 30vh
+  }
 `;

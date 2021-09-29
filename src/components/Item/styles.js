@@ -1,6 +1,16 @@
 import styled, { css, keyframes } from "styled-components";
 
-const slideIn = keyframes`
+const slideInVertical = keyframes`
+
+0%{
+  transform: translateY(0)
+}
+100%{
+  transform: translateY(-50vh)
+}
+
+`;
+const slideInHorizontal = keyframes`
 
 0%{
   transform: translateX(0)
@@ -8,10 +18,6 @@ const slideIn = keyframes`
 100%{
   transform: translateX(-50vw)
 }
-/* 100%{
-  transform: translateX(0)
-} */
-
 
 `;
 
@@ -24,14 +30,22 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* transition: 1s; */
-  /* transform: ${(props) =>
-    props.left ? `translateX(-50vw)` : `translateX(0)`} */
   ${(props) =>
     props.left &&
     css`
-      animation: ${slideIn} 1.2s ease infinite;
+      animation: ${slideInHorizontal} 1.2s ease infinite;
+
+      @media (max-width: 900px) {
+        animation: ${slideInVertical} 1.3s ease infinite;
+      }
     `}
+
+  @media(max-width: 900px) {
+    height: calc(50vh - 2px);
+    width: 100vw;
+    border: 1px solid black;
+    border-width: 1px 0px;
+  }
 `;
 
 export const CodeContainer = styled.div`
@@ -42,6 +56,9 @@ export const CodeContainer = styled.div`
   align-items: center;
   padding: auto;
   /* background: darkblue; */
+  @media (max-width: 900px) {
+    height: 33vh;
+  }
 `;
 
 export const Answer = styled.div`
@@ -61,4 +78,15 @@ export const Answer = styled.div`
   background: transparent no-repeat 0 0;
   /* background: none; */
   font-family: "Fira Code", monospace;
+  @media (max-width: 900px) {
+    height: 15%;
+    height: calc(17vh - 2px);
+    width: 65%;
+    margin: 15px;
+    padding: 15px;
+  }
+  @media (max-width: 450px) {
+    width: 80vw;
+    font-size: 45px;
+  }
 `;

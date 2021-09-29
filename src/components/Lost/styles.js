@@ -22,24 +22,27 @@ export const Container = styled.div`
     border: 1px solid rgba(255, 255, 255, 0.18);
     width: 30vw;
     height: 30vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 8%;
-  left: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 8%;
+    left: 35%;
+    @media (max-width: 900px) {
+      bottom: 35%;
+      left: 68%;
+    }
   }
 
-  h1{
+  h1 {
     margin-top: 0;
   }
-
 `;
 
 export const CustomButton = styled(Button)`
   font-size: 18px;
-  &:before{
+  &:before {
     background: green;
   }
 `;

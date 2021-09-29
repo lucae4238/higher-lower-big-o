@@ -6,12 +6,15 @@ const Buttons = (props) => {
   return (
     < Container isHidden={isHidden}>
       <span>This function has </span>
-      <Button onClick={handleHigher}>
-        Higher
-      </Button>
-      <Button onClick={handleLower}>
-        Lower
-      </Button>
+      <div>
+
+        <Button onClick={handleHigher}>
+          Higher
+        </Button>
+        <Button onClick={handleLower}>
+          Lower
+        </Button>
+      </div>
       <span>Big O Notation</span>
     </ Container>
   )

@@ -24,7 +24,7 @@ function App() {
   const [selected, setSelected] = useState([...getRandomItems(available)])
   const [score, setScore] = useState(0);
   const [lost, setLost] = useState(false);
-  const [win, setWin] = useState(true)
+  const [win, setWin] = useState(false)
   const [isMoving, setIsMoving] = useState(false)
   const [isFilling, setIsFilling] = useState(false)
   const [showingAnswer, setShowingAnswer] = useState(false)
@@ -41,14 +41,14 @@ function App() {
     if (isMoving) return;
     setShowingAnswer(true)
     setTimeout(() => {
-      
+
       if (bool) {
         if (available.length < 1) return setWin(true)
         setIsFilling("green")
         setTimeout(() => {
           setIsFilling(null)
           setIsMoving(true)
-          
+
           setTimeout(() => {
             setIsMoving(false)
             setScore(prev => prev + 1)

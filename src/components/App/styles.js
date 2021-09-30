@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100vw;
   margin: auto;
   display: flex;
-  @media(max-width: 900px){
+  @media (max-width: 900px) {
     flex-direction: column;
   }
 `;
@@ -13,13 +13,14 @@ export const ScoreSpan = styled.span`
   bottom: 3%;
   right: 2%;
   font-size: 25px;
-  @media(max-width: 900px) {
-  bottom: 1%;
+  @media (max-width: 900px) {
+    bottom: 1%;
   }
-  @media(max-width: 450px){
-    top: 46.5vh;
-    left:75%;
-    opacity: ${props => props.isMoving ? "0" : "1"};
+  @media (max-width: 450px) {
+    font-size: 16px;
+    top: 47vh;
+    left: 79%;
+    opacity: ${(props) => (props.isMoving ? "0" : "1")};
     transition: opacity 0.5s ease;
   }
 `;

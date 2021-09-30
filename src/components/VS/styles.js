@@ -40,5 +40,6 @@ export const Circle = styled.div`
   `};
   @media(max-width: 450px){
   transform: translate(-49%, -15%);
+  top: 47vh;
   }
 `;

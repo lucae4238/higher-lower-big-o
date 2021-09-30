@@ -109,7 +109,7 @@ function App() {
             text={item.func} />
         ))}
         {
-          (!lost || !win) && <ScoreSpan isMoving={isMoving}>Score: {score}</ScoreSpan>
+          (!lost && !win) && <ScoreSpan isMoving={isMoving}>Score: {score}</ScoreSpan>
         }
       </Container>
     </ >

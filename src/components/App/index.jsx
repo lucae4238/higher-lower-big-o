@@ -14,7 +14,7 @@ const values = {
   "O(n)": 10,
   //aca iria (0 n log n)
   "O(n^2)": 20,
-  "(2^n)": 30,
+  "O(2^n)": 30,
   "O(n!)": 50,
 }
 
@@ -109,7 +109,7 @@ function App() {
             text={item.func} />
         ))}
         {
-          !lost && <ScoreSpan>Score: {score}</ScoreSpan>
+          (!lost || !win) && <ScoreSpan isMoving={isMoving}>Score: {score}</ScoreSpan>
         }
       </Container>
     </ >

@@ -88,5 +88,7 @@ export const Answer = styled.div`
   @media (max-width: 450px) {
     width: 80vw;
     font-size: 45px;
+    height: fit-content;
+    margin: auto;
   }
 `;

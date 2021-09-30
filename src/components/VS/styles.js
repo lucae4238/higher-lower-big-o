@@ -38,4 +38,7 @@ export const Circle = styled.div`
       top: 0;
     }
   `};
+  @media(max-width: 450px){
+  transform: translate(-49%, -15%);
+  }
 `;

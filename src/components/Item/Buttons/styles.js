@@ -16,15 +16,22 @@ export const Container = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    @media (max-width: 900px) {
+  }
+
+  @media (max-width: 900px) {
+    height: 25vh;
+    div {
       flex-direction: row;
     }
   }
-  @media (max-width: 900px) {
-    height: 25vh;
-  }
   @media (max-width: 450px) {
     width: 90vw;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 8vh;
+    span {
+      display: none;
+    }
   }
 `;
 

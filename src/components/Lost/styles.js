@@ -12,6 +12,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   div {
     background: rgba(255, 255, 255, 0.1);
@@ -32,6 +33,10 @@ export const Container = styled.div`
     @media (max-width: 900px) {
       bottom: 35%;
       left: 68%;
+    }
+    @media (max-width: 450px) {
+      padding: 10px;
+      left: 63%;
     }
   }
 

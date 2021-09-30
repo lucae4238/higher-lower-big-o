@@ -16,4 +16,10 @@ export const ScoreSpan = styled.span`
   @media(max-width: 900px) {
   bottom: 1%;
   }
+  @media(max-width: 450px){
+    top: 50%;
+    left:75%;
+    opacity: ${props => props.isMoving ? "0" : "1"};
+    transition: opacity 0.5s ease;
+  }
 `;
